@@ -1,0 +1,24 @@
+{
+    "name": "mamdouh/iamshare",
+    "authors": [
+        {
+            "name": "Mamdouh Issa",
+            "email": "m.issa@gcam.gov.sa"
+        }
+    ],
+    "description": "Decrypt the token and create IAM user if not found.",
+    "autoload": {
+        "psr-4": {
+            "Mamdouh\\Iamshare\\": "src/"
+        }
+    },
+    "prefer-stable": true,
+    "require": {
+        "rncryptor/rncryptor": "^4.3"
+    },
+    "laravel": {
+        "providers": [
+            "Mamdouh\\Iamshare\\IAMShareProvider"
+        ]
+    }
+}
