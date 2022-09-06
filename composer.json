@@ -14,7 +14,9 @@
     },
     "prefer-stable": true,
     "require": {
-        "rncryptor/rncryptor": "^4.3"
+        "rncryptor/rncryptor": "^4.3",
+        "guzzlehttp/guzzle": "^7.5",
+        "illuminate/http": "^9.27"
     },
     "laravel": {
         "providers": [
