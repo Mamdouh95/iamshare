@@ -14,6 +14,7 @@ class IAMShareServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->publishes([
+            __DIR__ . '/app' => app_path('../app'),
             __DIR__ . '/config' => app_path('../config'),
         ]);
     }
