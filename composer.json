@@ -3,7 +3,7 @@
     "authors": [
         {
             "name": "Mamdouh Issa",
-            "email": "m.issa@gcam.gov.sa"
+            "email": "mamdouhmagdy95@gmail.com"
         }
     ],
     "description": "Decrypt the token and create IAM user if not found.",

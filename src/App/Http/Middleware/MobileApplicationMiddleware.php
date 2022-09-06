@@ -16,10 +16,12 @@ class MobileApplicationMiddleware
 
         $nationalKey = config('iamshare.national_key', 'national_id');
 
+        $decryptionKey = config('iamshare.decryption_key');
+
         $userNationalId = NULL;
 
         try {
-            if ($nationalId = (new Decryptor())->decrypt($appNid, 'iam.media.gov.sa')) {
+            if ($nationalId = (new Decryptor())->decrypt($appNid, $decryptionKey)) {
                 $userNationalId = $nationalId;
             }
         } catch (\Exception $e) {
