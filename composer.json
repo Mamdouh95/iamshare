@@ -15,7 +15,7 @@
     "prefer-stable": true,
     "require": {
         "rncryptor/rncryptor": "^4.3",
-        "guzzlehttp/guzzle": "^7.5",
+        "guzzlehttp/guzzle": "^7.0.1",
         "illuminate/http": "^v8.0.0"
     },
     "laravel": {
