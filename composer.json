@@ -20,7 +20,7 @@
     },
     "laravel": {
         "providers": [
-            "Mamdouh\\Iamshare\\IAMShareProvider"
+            "Mamdouh\\Iamshare\\IAMShareServiceProvider"
         ]
     }
 }
