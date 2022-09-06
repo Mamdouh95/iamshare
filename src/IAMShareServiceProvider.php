@@ -4,7 +4,7 @@ namespace Mamdouh\Iamshare;
 
 use Illuminate\Support\ServiceProvider;
 
-class IAMShareProvider extends ServiceProvider
+class IAMShareServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap services.
