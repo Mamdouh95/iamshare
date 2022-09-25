@@ -2,6 +2,7 @@
 
 namespace Mamdouh\Iamshare\App\Http\Middleware;
 
+use Carbon\Carbon;
 use RNCryptor\RNCryptor\Decryptor;
 use Closure;
 use Illuminate\Support\Facades\Http;
@@ -21,9 +22,18 @@ class MobileApplicationMiddleware
         $userNationalId = NULL;
 
         try {
-            if ($nationalId = (new Decryptor())->decrypt($appNid, $decryptionKey)) {
-                $userNationalId = $nationalId;
+            $key = (new Decryptor())->decrypt($appNid, $decryptionKey);
+
+            $arr = explode('|', $key);
+
+            $expired = Carbon::parse($arr[1])->isAfter(now());
+
+            if (!$expired) {
+                return response()->json(['message' => 'Token expired, Please re-login.'], 401);
             }
+
+            $userNationalId = $arr[0];
+
         } catch (\Exception $e) {
             return response()->json(['message' => 'Unauthorized'], 401);
         }
@@ -43,7 +53,7 @@ class MobileApplicationMiddleware
                 $user = $userModel::create($merged);
 
             } catch (\Exception $e) {
-                return response()->json(['message' => 'User not in system, to be fixed.'], 401);
+                return response()->json(['message' => 'User fetching from IAM failed.'], 401);
             }
         }
 
